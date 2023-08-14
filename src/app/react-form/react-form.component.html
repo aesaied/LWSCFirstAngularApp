@@ -1,0 +1,29 @@
+<form [formGroup]="myGroup" (ngSubmit)="onSubmit()">
+
+    <input type="text" formControlName="firstName" />
+
+
+    <app-error-msg [control]="myGroup.controls['firstName']" fieldName="first name"></app-error-msg>
+
+    <input type="text" formControlName="secondName" />
+
+    <app-error-msg [control]="myGroup.controls['secondName']" fieldName="Second  name"></app-error-msg>
+
+
+    <input type="text" *ngIf="thirdNameVisible" formControlName="thirdName">
+    <input type="submit" [disabled]="myGroup.invalid" />
+
+</form>
+
+
+<button (click)="viewThirdName()">View third name</button>
+
+
+<button (click)="setValues()">Set values</button>
+
+<button (click)="restValues()">Reset values</button>
+
+
+
+
+{{myGroup.value | json}}

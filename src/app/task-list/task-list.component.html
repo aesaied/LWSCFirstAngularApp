@@ -1,0 +1,37 @@
+<app-create-task (taskCreated)="addTask($event)"></app-create-task>
+
+
+
+<table>
+    <thead>
+
+        <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Important</th>
+            <th scope="col">Delete</th>
+
+
+
+
+        </tr>
+
+    </thead>
+
+    <!-- [ngClass]="task.isImportant?'important':'normal'" -->
+
+    <!--  [class.important]="task.isImportant"
+            [class.normal]="task.isImportant==false" -->
+
+    <tbody>
+        <tr *ngFor="let task  of taskList" [ngClass]="{'important': task.isImportant, 'normal': !task.isImportant}">
+            <td>{{ task.title}}</td>
+            <td>{{ task.description}}</td>
+
+            <td>{{task.isImportant }}</td>
+
+            <td><button (click)="deleteTask(task)">Delete</button> </td>
+        </tr>
+    </tbody>
+
+</table>

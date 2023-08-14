@@ -1,0 +1,6 @@
+<div *ngIf="control.hasError('required') && (control.dirty || control.touched)" class="ui error message">{{fieldName}}
+    is
+    required</div>
+
+<div *ngIf="control.hasError('minlength') && (control.dirty || control.touched)" class="ui error message">{{fieldName}}
+    must be at least 2 chars</div>

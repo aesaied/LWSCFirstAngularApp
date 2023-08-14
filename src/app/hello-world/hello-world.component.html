@@ -1,0 +1,90 @@
+<p>hello-world works!</p>
+
+{{ myName}}
+<br>
+{{welcomeMsg}}
+
+<br>
+
+{{'Hi '+ myName+',' + welcomeMsg}}
+
+
+<input #myNameVal type="text" [value]="myName" />
+
+
+
+<button #myBtn (click)="myName=myNameVal.value">Change Name</button>
+
+<button (click)="myBtn.disabled= !myBtn.disabled ">Disable/Enable change name</button>
+
+
+
+
+<button (click)="incremnet()">{{count}}</button>
+
+
+{{emplyees}}
+
+
+<ul>
+    <li *ngFor="let emp of emplyees; let i=index; let odd=odd; let even=even">
+        {{i+1}} {{emp}} {{odd}} {{even}}
+
+    </li>
+
+
+</ul>
+
+
+<ng-container *ngFor="let emp of emplyees; let i=index; let odd=odd; let even=even">
+    {{i+1}} {{emp}} {{odd}} {{even}} =>
+
+</ng-container>
+
+
+
+<ng-template ngFor let-emp [ngForOf]="emplyees">
+
+    {{emp}} ->
+
+
+
+</ng-template>
+
+
+
+<br />
+
+<span *ngIf="count>=20;else elseCount">
+    Count >=20
+</span>
+
+
+<ng-template #elseCount>
+
+    <span> Count less than 20</span>
+
+
+
+</ng-template>
+
+
+<div *ngIf="count>10; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>Content to render when condition is true.</ng-template>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template>
+
+
+
+<button (click)="color='red'">Set color red</button>
+<button (click)="color='blue'">Set color blue</button>
+<button (click)="color='green'">Set color green</button>
+
+
+<div [ngSwitch]="color">
+
+    <span *ngSwitchCase="'red'">Red value</span>
+    <span *ngSwitchCase="'blue'">Blue value</span>
+
+    <span *ngSwitchDefault> Not red or blue</span>
+
+</div>

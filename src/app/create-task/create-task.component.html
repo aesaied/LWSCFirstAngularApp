@@ -1,0 +1,8 @@
+<div>
+    <input #title />
+    <input #description>
+    <input type="checkbox" #important>
+
+
+    <button (click)="createTask(title.value, description.value ,important.checked)">Create Task</button>
+</div>

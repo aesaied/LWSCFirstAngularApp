@@ -1,0 +1,26 @@
+<form #myform="ngForm" (ngSubmit)="onSubmit(myform)" novalidate>
+
+    <input [(ngModel)]="person.firstName" name="firstName" [required]="true" [minlength]="2" #fname="ngModel">
+
+    <div *ngIf="fname.hasError('required') && (fname.dirty || fname.touched)" class="ui error message">First name is
+        required</div>
+
+    <div *ngIf="fname.hasError('minlength') && (fname.dirty || fname.touched)" class="ui error message">First name must
+        be at least 2 chars</div>
+
+    <input [ngModel]="person.secondName" name="secondName" #sName="ngModel" #ssName>
+
+    Welcome {{ person.firstName }} {{ person.secondName }}
+
+    <input type="submit" [disabled]="myform.invalid">
+
+</form>
+
+
+{{myform.value | json}}
+
+{{fname.errors | json}}
+
+isValid: {{myform.valid }}
+isTouched: {{myform.touched }}
+isDirty: {{myform.dirty }}
