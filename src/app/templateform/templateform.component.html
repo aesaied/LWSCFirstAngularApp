@@ -10,6 +10,14 @@
 
     <input [ngModel]="person.secondName" name="secondName" #sName="ngModel" #ssName>
 
+    <input type="checkbox" #PassValActive>
+    <input name="password" ngModel #pass="ngModel" required minlength="5"
+        [PasswordStrength]={requireDigits:true,requireUpperChars:true,requireLowerChars:false}
+        [PasswordStrengthActive]="PassValActive.checked">
+
+    <app-error-msg [control]="pass.control" fieldName="Password"></app-error-msg>
+
+
     Welcome {{ person.firstName }} {{ person.secondName }}
 
     <input type="submit" [disabled]="myform.invalid">
@@ -24,3 +32,8 @@
 isValid: {{myform.valid }}
 isTouched: {{myform.touched }}
 isDirty: {{myform.dirty }}
+
+
+{{"welcome" | uppercase}}
+
+{{100 | currency}}

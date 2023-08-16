@@ -1,0 +1,33 @@
+<p>pipes-demo works!</p>
+
+
+{{bDate}}
+
+{{ bDate | date:"EEEE, dd/MMM/yyyy" | uppercase }}
+
+Date Value={{ bDate | date }}
+
+
+
+{{100.85555542 | currency:'CAD':'code':'.3'}}
+
+
+<br />
+
+Value ={{100.85555542 | currency}}
+
+
+
+{{10 | exponentialStrength:3 | currency:'ILS':'code' | lowercase}}
+
+
+<br>
+
+Service creationDate :{{cDate}}
+
+
+{{myURL}}
+
+
+
+<a [routerLink]="['/pipes',40]">Call pipes</a>

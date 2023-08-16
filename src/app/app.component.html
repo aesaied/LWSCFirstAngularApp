@@ -1,4 +1,4 @@
-<div>Value from parent {{myCount}}</div>
+<!-- <div>Value from parent {{myCount}}</div>
 <app-hello-world [(count)]="myCount"></app-hello-world>
 
 
@@ -9,3 +9,22 @@
 
 
 <app-react-form></app-react-form>
+
+
+<app-pipes-demo></app-pipes-demo> -->
+
+
+<ul>
+    <li>
+        <a routerLink="home">Home</a>
+
+    </li>
+    <li>
+        <a routerLink="tasks">Tasks</a>
+    </li>
+    <li>
+        <a [routerLink]="['pipes',20]">pipes</a>
+    </li>
+</ul>
+
+<router-outlet></router-outlet>

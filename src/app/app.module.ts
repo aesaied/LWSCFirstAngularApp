@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TemplateformComponent } from './templateform/templateform.component';
 import { ReactFormComponent } from './react-form/react-form.component';
 import { ErrorMsgComponent } from './error-msg/error-msg.component';
+import { PasswordStrengthDirective } from './shared/password-strength.directive';
+import { PipesDemoComponent } from './pipes-demo/pipes-demo.component';
+import { ExponentialStrengthPipe } from './shared/exponential-strength.pipe';
+import { UserService } from './Services/user.service';
+import { IUserService } from './Services/iuser.service';
+import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
+import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +29,12 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
     DetructCompComponent,
     TemplateformComponent,
     ReactFormComponent,
-    ErrorMsgComponent
+    ErrorMsgComponent,
+    PasswordStrengthDirective,
+    PipesDemoComponent,
+    ExponentialStrengthPipe,
+    HomeComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +42,17 @@ import { ErrorMsgComponent } from './error-msg/error-msg.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{ provide: IUserService, useClass: UserService },
+
+  { provide: 'USERSERVICE', useExisting: IUserService },
+  { provide: 'API_URL', useValue: 'http://localost/' }
+
+
+    , { provide: DEFAULT_CURRENCY_CODE, useValue: 'ILS' },
+
+
+
+  { provide: DATE_PIPE_DEFAULT_OPTIONS, useValue: { dateFormat: 'dd/MM/yyyy' } }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

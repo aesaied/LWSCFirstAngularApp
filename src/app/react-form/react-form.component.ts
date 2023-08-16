@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Person } from '../models/person';
+import { CustomValidators } from '../shared/custom-validators';
 
 @Component({
   selector: 'app-react-form',
@@ -20,12 +21,14 @@ export class ReactFormComponent {
     var person: Person = { firstName: 'Atallah', secondName: 'Isayed' };
     this.myGroup = fb.group({
       'firstName': ['Hamouda', [Validators.required, Validators.minLength(2)]],
-      'secondName': ['', Validators.required]
+      'secondName': ['', Validators.required],
 
-    });
+      'password': ['', [Validators.required, Validators.minLength(5), CustomValidators.createPasswordStrengthValidator(false)]]
+
+    }, { Validators: [] });
 
 
-    this.myGroup.setValue(person);
+    //this.myGroup.setValue(person);
 
 
 

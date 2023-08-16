@@ -10,6 +10,11 @@
     <app-error-msg [control]="myGroup.controls['secondName']" fieldName="Second  name"></app-error-msg>
 
 
+    <input type="text" formControlName="password" />
+
+    <app-error-msg [control]="myGroup.controls['password']" fieldName="password"></app-error-msg>
+
+
     <input type="text" *ngIf="thirdNameVisible" formControlName="thirdName">
     <input type="submit" [disabled]="myGroup.invalid" />
 
