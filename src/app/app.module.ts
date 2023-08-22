@@ -19,6 +19,13 @@ import { IUserService } from './Services/iuser.service';
 import { DATE_PIPE_DEFAULT_OPTIONS } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { TaskTemplateComponent } from './task-template/task-template.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AlbumsComponent } from './albums/albums.component';
+import { AlbumDetailComponent } from './album-detail/album-detail.component';
+import { AlbumsTemplateComponent } from './albums-template/albums-template.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { CreateProductComponent } from './product-list/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -34,18 +41,27 @@ import { NotFoundComponent } from './not-found/not-found.component';
     PipesDemoComponent,
     ExponentialStrengthPipe,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    TaskTemplateComponent,
+    AlbumsComponent,
+    AlbumDetailComponent,
+    AlbumsTemplateComponent,
+    ProductListComponent,
+    CreateProductComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [{ provide: IUserService, useClass: UserService },
 
   { provide: 'USERSERVICE', useExisting: IUserService },
-  { provide: 'API_URL', useValue: 'http://localost/' }
+  { provide: 'API_URL', useValue: 'https://jsonplaceholder.typicode.com/' },
+  { provide: 'PROD_API_URL', useValue: 'https://localhost:7259/api/' }
 
 
     , { provide: DEFAULT_CURRENCY_CODE, useValue: 'ILS' },

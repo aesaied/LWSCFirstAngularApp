@@ -16,14 +16,18 @@
 
 <ul>
     <li>
-        <a routerLink="home">Home</a>
+        <a [routerLink]="['home']">Home</a>
+
+    </li>
+    <li>
+        <a [routerLink]="['/tasks/home']">Task home</a>
 
     </li>
     <li>
         <a routerLink="tasks">Tasks</a>
     </li>
     <li>
-        <a [routerLink]="['pipes',20]">pipes</a>
+        <a [routerLink]="['pipes',20,30,{x:10}]">pipes</a>
     </li>
 </ul>
 

@@ -1,0 +1,20 @@
+<form #myForm="ngForm" (ngSubmit)="saveData(myForm.value)">
+
+    <input ngModel placeholder="Name" name="name">
+    <input ngModel placeholder="Description" name="description">
+
+    <select ngModel name="categoryId">
+        <option value="">--select--</option>
+
+        <option *ngFor="let cat of productCategories" [value]="cat.id">{{cat.name}}</option>
+
+    </select>
+
+    <input ngModel placeholder="Price" name="price">
+
+    <button type="submit">Submit </button>
+
+</form>
+
+
+{{ myForm.value | json}}
