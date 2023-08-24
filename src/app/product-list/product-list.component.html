@@ -1,9 +1,48 @@
 <p>product-list works!</p>
 
 
+<p>
+    <ngb-alert [dismissible]="false">
+        <strong>Warning!</strong> Better check yourself, you're not looking too good.
+    </ngb-alert>
+</p>
+
+<a class="btn btn-primary" [routerLink]="['create']">Add new product</a>
+
 <ul>
     <li *ngFor="let product of products">
 
         {{product.name}}
     </li>
 </ul>
+
+
+
+
+
+
+
+<table datatable [dtOptions]="dtOptions" class="row-border hover"></table>
+
+<table *ngIf="products" datatable class="row-border hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let  product  of products">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price | currency}}</td>
+
+
+        </tr>
+
+    </tbody>
+</table>

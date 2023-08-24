@@ -14,7 +14,23 @@
 <app-pipes-demo></app-pipes-demo> -->
 
 
-<ul>
+<app-menu></app-menu>
+
+<div class="container">
+    <main role="main" class="pb-3">
+        <router-outlet></router-outlet>
+
+
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2023 - LWSCSecondProject - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>
+
+<!-- <ul>
     <li>
         <a [routerLink]="['home']">Home</a>
 
@@ -27,8 +43,9 @@
         <a routerLink="tasks">Tasks</a>
     </li>
     <li>
+        <a routerLink="products">Products</a>
+    </li>
+    <li>
         <a [routerLink]="['pipes',20,30,{x:10}]">pipes</a>
     </li>
-</ul>
-
-<router-outlet></router-outlet>
+</ul> -->

@@ -24,6 +24,33 @@ export class ProductService {
   }
 
 
+  getForDataTable(dataTablesParameters: any): Observable<any> {
+
+    console.log(dataTablesParameters);
+
+    var columnId = dataTablesParameters.order[0].column;
+    var sortDir = dataTablesParameters.order[0].dir;
+
+
+    if (!columnId) {
+      columnId = 0;
+    }
+
+
+    var param = { draw: dataTablesParameters.draw, sortColumn: dataTablesParameters.columns[columnId].data, sortDirection: sortDir, pageSize: dataTablesParameters.length, SkipCount: dataTablesParameters.start, searchText: dataTablesParameters.search.value };
+    console.log(param);
+    //alert(JSON.stringify(param));
+    return this.http.get<any>(`${this.PROD_API_URL}${this.productURL}/GetPagedResult`, { params: param, ...this.httpOptions });
+
+  }
+
+
+  delete(productId: Number): Observable<any> {
+
+    return this.http.delete(`${this.PROD_API_URL}${this.productURL}/` + productId, this.httpOptions);
+  }
+
+
   add(product: ProductModel) {
 
     return this.http.post(`${this.PROD_API_URL}${this.productURL}`, product, this.httpOptions);

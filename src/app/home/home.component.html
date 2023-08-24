@@ -1,1 +1,14 @@
 <p>home works!</p>
+
+
+<button
+    [swal]="{ title: 'Save file as...', input: 'text', showDenyButton: true, denyButtonText: 'Don\'t save', showCancelButton: true }"
+    (confirm)="saveFile($event)" (deny)="handleDenial()" (dismiss)="handleDismiss($event)">
+
+    Save
+</button>
+
+
+<!---->
+
+<button (click)="ShowAlert()"> show alert</button>

@@ -1,6 +1,8 @@
 import { DEFAULT_CURRENCY_CODE, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
@@ -26,6 +28,12 @@ import { AlbumDetailComponent } from './album-detail/album-detail.component';
 import { AlbumsTemplateComponent } from './albums-template/albums-template.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CreateProductComponent } from './product-list/create-product/create-product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { DataTablesModule } from 'angular-datatables';
+import { MenuComponent } from './menu/menu.component';
+
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -47,7 +55,8 @@ import { CreateProductComponent } from './product-list/create-product/create-pro
     AlbumDetailComponent,
     AlbumsTemplateComponent,
     ProductListComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    MenuComponent
 
   ],
   imports: [
@@ -55,7 +64,12 @@ import { CreateProductComponent } from './product-list/create-product/create-pro
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    DataTablesModule,
+
+    SweetAlert2Module.forRoot(),
+
   ],
   providers: [{ provide: IUserService, useClass: UserService },
 
